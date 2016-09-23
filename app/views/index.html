@@ -1,0 +1,62 @@
+<html>
+ <head>
+     <title>Courses</title>
+   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+ </head>
+ <body>
+   <div class="container">
+     <h3>Add a New Course</h3>
+
+
+   <form action='/courses/add' method='POST'>
+
+        <p>Title:</p>
+        <input type='text' name='title'>
+        <br>
+
+        <p>Description:</p>
+        <textarea name="description" rows="5" cols="30"></textarea>
+        <br>
+
+        <input type='submit' value='Add'>
+
+    </form>
+
+    <p> Courses:</p>
+
+
+      <table class="table">
+        <thead>
+          <tr>
+          <th>Title</th>
+       <th>Description</th>
+          <th>Date Added</th>
+          <th>Actions</th>
+         </tr>
+        </thead>
+        {% for course in all_courses %}
+        <tbody>
+         <tr>
+
+       <td>{{course['title']}}</td>
+       <td>{{course['description']}}</td>
+       <td>{{course['created_at']}}</td>
+
+
+       <td> <form action='courses/show/{{course['id']}}' method='GET'>
+
+         <input type='submit' value='Delete'></td>
+       </form>
+
+       </tr>
+       </tbody>
+          {% endfor %}
+    </table>
+
+
+
+  </div>
+ </body>
+</html>

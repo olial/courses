@@ -1,0 +1,32 @@
+<html>
+ <head>
+     <title> Survey Form</title>
+     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+ </head>
+ <body>
+   <div class="container">
+     <p> Are you sure you want to delete the following Course? </p>
+     <div id=results>
+
+            <p> Title: {{course[0]['title']}}</p>
+            <p> Description: {{course[0]['description']}}</p>
+
+            <form action = '/' method="GET">
+                <button> NO </button>
+            </form>
+
+
+            <form action= '/courses/delete/{{course[0]['id']}}' method="GET">
+                <input type='submit' value='YES'>
+            </form>
+
+
+    </div>
+
+
+
+  </div>
+ </body>
+</html>
